@@ -228,4 +228,5 @@ Além disso, a interpretabilidade do modelo permitiu identificar quais fatores e
 
 ## Autores
 
-Projeto acadêmico desenvolvido para a disciplina de Generative AI and Engineering aplicado à Economia Espacial.
+Projeto acadêmico desenvolvido por Victoria Franceschini Pizza para a disciplina de Generative AI and Engineering aplicado à Economia Espacial.
+https://orbitrisk-ai-zwwffadhpwcgpustrc5osc.streamlit.app/
