@@ -8,23 +8,32 @@ X_test = pd.read_csv("X_test.csv")
 
 modelo = joblib.load("melhor_modelo_orbitrisk.pkl")
 
-# Criar explicador SHAP
-explainer = shap.Explainer(modelo, X_train)
+# Usar TreeExplainer, ideal para Random Forest e Gradient Boosting
+explainer = shap.TreeExplainer(modelo)
 
-# Calcular valores SHAP
-shap_values = explainer(X_test)
+shap_values = explainer.shap_values(X_test)
 
-# Gráfico geral de importância das variáveis
-shap.plots.bar(shap_values, show=False)
-plt.savefig("shap_importancia_variaveis.png", bbox_inches="tight")
-plt.close()
+# Caso o modelo seja multiclasse, pegamos uma classe por vez
+if isinstance(shap_values, list):
+    for i, valores_classe in enumerate(shap_values):
+        plt.figure()
+        shap.summary_plot(
+            valores_classe,
+            X_test,
+            show=False
+        )
+        plt.savefig(f"shap_summary_classe_{i}.png", bbox_inches="tight")
+        plt.close()
 
-# Gráfico detalhado
-shap.summary_plot(shap_values, X_test, show=False)
-plt.savefig("shap_summary_plot.png", bbox_inches="tight")
-plt.close()
+else:
+    plt.figure()
+    shap.summary_plot(
+        shap_values,
+        X_test,
+        show=False
+    )
+    plt.savefig("shap_summary_plot.png", bbox_inches="tight")
+    plt.close()
 
 print("Análise SHAP finalizada com sucesso!")
-print("Arquivos gerados:")
-print("- shap_importancia_variaveis.png")
-print("- shap_summary_plot.png")
+print("Gráficos SHAP salvos na pasta do projeto.")
