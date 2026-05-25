@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import os
 
 API_KEY = "DEMO_KEY"
 

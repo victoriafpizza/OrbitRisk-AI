@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("dataset_orbitrisk_ai.csv")
+df = pd.read_csv("/data/dataset_orbitrisk_ai.csv")
 
 # 1. Razão entre diâmetros
 df["razao_diametro"] = (

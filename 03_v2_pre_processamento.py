@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 import joblib
 
-df = pd.read_csv("dataset_orbitrisk_feature_engineering.csv")
+df = pd.read_csv("data/dataset_orbitrisk_feature_engineering.csv")
 
 # Remover colunas textuais pouco úteis para o modelo
 df = df.drop(columns=["data_evento", "nome_objeto"])
