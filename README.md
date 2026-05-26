@@ -1,6 +1,7 @@
 # OrbitRisk AI
 
 Sistema inteligente de previsão de risco operacional para missões espaciais utilizando Inteligência Artificial e Machine Learning.
+Desenvolvido por: Victoria Franceschini Pizza | RM550609
 
 ## Objetivo do Projeto
 
